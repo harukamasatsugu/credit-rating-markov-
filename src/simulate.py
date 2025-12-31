@@ -29,7 +29,6 @@ def normalize_rows(tm: np.ndarray) -> np.ndarray:
 
 
 def plot_transition_heatmap(df_tm: pd.DataFrame, outpath: Path) -> None:
-    # seaborn無し：matplotlibのimshowで十分きれいに出ます
     fig, ax = plt.subplots(figsize=(10, 8))
     im = ax.imshow(df_tm.values)
 
@@ -39,7 +38,6 @@ def plot_transition_heatmap(df_tm: pd.DataFrame, outpath: Path) -> None:
     ax.set_ylabel("Source Rating")
     ax.set_title("Credit Rating Transition Matrix (1-Year)")
 
-    # 値表示
     for i in range(df_tm.shape[0]):
         for j in range(df_tm.shape[1]):
             ax.text(j, i, f"{df_tm.iat[i, j]:.3f}", ha="center", va="center", fontsize=8)
